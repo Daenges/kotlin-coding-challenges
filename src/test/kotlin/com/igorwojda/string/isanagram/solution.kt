@@ -33,4 +33,23 @@ private object Solution3 {
     }
 }
 
+private object Solution4 {
+    private fun isAnagram(str1 : String, str2 : String) : Boolean {
+        return if (str1.isNotEmpty() && str2.isNotEmpty()) {
+            val str1FirstLetter = str1[0]
+            val str1Rest = str1.substring(1)
+
+            return if(str2.contains(str1FirstLetter, true)) {
+                val str2Rest = str2.replaceFirst(str1FirstLetter.toString(), "", true)
+                isAnagram(str1Rest, str2Rest)
+            }
+            else {
+                false
+            }
+        } else {
+            true
+        }
+    }
+}
+
 private object KtLintWillNotComplain
