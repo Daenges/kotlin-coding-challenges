@@ -23,3 +23,19 @@ private object Solution2 {
         return counter
     }
 }
+
+// Recursive
+private object Solution3 {
+    private fun vowels(str: String) : Int {
+        return if (str.isNotEmpty()) {
+            val firstChar = str[0]
+            var containsVowel = 0
+
+            if (listOf('a', 'e', 'i', 'o', 'u').contains(firstChar)) {
+                containsVowel = 1
+            }
+            vowels(str.substring(1)) + containsVowel
+
+        } else { 0 }
+    }
+}
