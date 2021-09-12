@@ -61,11 +61,10 @@ private object Solution5 {
 
 // Another recursive solution
 private object Solution6 {
-    private fun reverseString(str : String) : String {
-        var tempStr = ""
-        for(char in str) {
-            tempStr = char + tempStr
-        }
-        return tempStr
+    private fun reverseStringRecursive(str: String) : String {
+        return if (str.isNotEmpty()) {
+            val firstChar = str[0]
+            reverseStringRecursive(str.substring(1)) + firstChar
+        } else { "" }
     }
 }
